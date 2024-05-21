@@ -1,0 +1,50 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+   height: 300vh;
+}
+
+.container {
+   @apply px-[35px] mx-auto;
+}
+
+.edit-container {
+   padding: 0 60px;
+   width: 100%;
+}
+
+.header__image::before {
+   background-color: black;
+   content: "";
+   height: 100%;
+   left: 0;
+   opacity: 0;
+   position: absolute;
+   top: 0;
+   width: 100%;
+}
+
+.active--scale {
+   transform: scale(1) !important;
+   transition: 0.2s;
+}
+
+.animate-opacity {
+   animation: show-hide 0.7s linear infinite alternate;
+}
+
+.menu__link div {
+   transform-origin: top;
+}
+
+@keyframes show-hide {
+   from {
+      opacity: 1;
+   }
+
+   to {
+      opacity: 0.2;
+   }
+}
