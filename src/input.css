@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 body {
-   height: 300vh; /* test */
+   height: 300vh;
 }
 
 .container {
@@ -47,4 +47,34 @@ body {
    to {
       opacity: 0.2;
    }
+}
+
+
+.hiking .container>* {
+   flex-basis: 45%;
+}
+
+.category::before {
+   content: " ";
+   position: absolute;
+   height: 1px;
+   width: 100%;
+   background-color: black;
+   bottom: 0;
+   transform: scaleX(0);
+   transition: .5s ease-in;
+   transform-origin: left;
+}
+.category.active::before{
+   transform: scaleX(1);
+   /* transform-origin: right; */
+}
+.category.right::before{
+   transform-origin: right;
+}
+.category.left::before{
+   transform-origin: left;
+}
+.category.active .secondwrapper{
+   transform: translateY(-78px);
 }
