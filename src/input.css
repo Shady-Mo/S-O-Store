@@ -49,32 +49,38 @@ body {
    }
 }
 
+.hiking-section__text {
+   word-spacing: 0.4em;
+}
 
-.hiking .container>* {
+.hiking-section__container > * {
    flex-basis: 45%;
 }
 
-.category::before {
-   content: " ";
-   position: absolute;
-   height: 1px;
-   width: 100%;
+.hiking-section__category::before {
    background-color: black;
    bottom: 0;
+   content: " ";
+   height: 1px;
+   position: absolute;
+   transform-origin: left;
    transform: scaleX(0);
    transition: .5s ease-in;
-   transform-origin: left;
+   width: 100%;
 }
-.category.active::before{
+
+.active--scaleX::before {
    transform: scaleX(1);
-   /* transform-origin: right; */
 }
-.category.right::before{
+
+.hiking-section__right::before {
    transform-origin: right;
 }
-.category.left::before{
+
+.hiking-section__left::before {
    transform-origin: left;
 }
-.category.active .secondwrapper{
-   transform: translateY(-78px);
+
+.active--scaleX .hiking-section__second-wrapper {
+   transform: translateY(-51%);
 }

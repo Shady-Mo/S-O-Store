@@ -87,37 +87,55 @@ navbarElement.addEventListener("mouseleave", function (event) {
 });
 
 
-let l = findCssRule(".category::before");
-let cl = document.querySelectorAll(".category");
-cl.forEach((c) => {
-   c.addEventListener("mouseenter", function (event) {
-      cl.forEach((cat) => {
-         // cat.classList.remove('left')
-         cat.classList.remove('active');
-         setTimeout(function () { c.classList.remove('right') }, 500);
-      })
-      c.classList.add("left");
-      c.classList.add("active");
-
+let beforeCategoryHikingElement = findCssRule(".hiking-section__category::before");
+let categoryHikingElement = document.querySelectorAll(".hiking-section__category");
+categoryHikingElement.forEach((element) => {
+   element.addEventListener("mouseenter", function (event) {
+      categoryHikingElement.forEach((category) => {
+         category.classList.remove('active--scaleX');
+      });
+      element.classList.add("active--scaleX");
       let id = event.target.getAttribute("id");
-      let spanElements = document.querySelectorAll(`#${id} span`)
-      const timeline = gsap.timeline();
-      timeline.to(spanElements, {
-         opacity: 0,
+      let spanHikingElements = document.querySelectorAll(`#${id} span`);
+      // we have two group of span elements in single parent
+      let spanFirstHalfElements = [], spanSecondHalfElements = [];
+      // get first group of span elements
+      for (let i = 0; i < spanHikingElements.length / 2; i++) {
+         spanFirstHalfElements.push(spanHikingElements[i]);
+      }
+      // get second group of span elements
+      for (let i = spanHikingElements.length / 2; i < spanHikingElements.length; i++) {
+         spanSecondHalfElements.push(spanHikingElements[i]);
+      }
+      // do hidden animation on first half separately from second half
+      gsap.to(spanFirstHalfElements, {
+         visibility: "hidden",
          stagger: {
-            amount: 0.3,
-         },
-      }).to(spanElements, {
-         opacity: 1,
-         stagger: {
-            amount: 0.3,
-            from:"center",
+            each: 0.05,
          },
       });
-
-
+      // do visible animation on first half separately from second half
+      gsap.to(spanFirstHalfElements, {
+         visibility: "visible",
+         delay: 0.05 * spanFirstHalfElements.length, // make visible animation to wait finishing hidden animation and play
+         stagger: {
+            each: 0.05,
+         },
+      });
+      // do hidden animation on second half separately from first half
+      gsap.to(spanSecondHalfElements, {
+         visibility: "hidden",
+         stagger: {
+            each: 0.05,
+         },
+      });
+      // do visible animation on second half separately from first half
+      gsap.to(spanSecondHalfElements, {
+         visibility: "visible",
+         delay: 0.05 * spanSecondHalfElements.length, // make visible animation to wait finishing hidden animation and play
+         stagger: {
+            each: 0.05,
+         },
+      });
    });
-   c.addEventListener("mouseleave", function (event) {
-      setTimeout(function () { l.setProperty("transform-origin", "left") }, 300)
-   });
-})
+});
