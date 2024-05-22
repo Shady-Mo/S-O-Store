@@ -768,6 +768,10 @@ video {
   font-weight: 600;
 }
 
+.font-\[700\] {
+  font-weight: 700;
+}
+
 .uppercase {
   text-transform: uppercase;
 }
@@ -786,6 +790,14 @@ video {
 
 .tracking-wide {
   letter-spacing: 0.025em;
+}
+
+.tracking-\[\] {
+  letter-spacing: ;
+}
+
+.tracking-\[-2px\] {
+  letter-spacing: -2px;
 }
 
 .text-\[\#838282\] {
