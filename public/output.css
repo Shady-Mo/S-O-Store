@@ -814,10 +814,6 @@ video {
   transition-duration: 0.3s;
 }
 
-body {
-  height: 300vh;
-}
-
 .container {
   margin-left: auto;
   margin-right: auto;

@@ -2,10 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
-   height: 300vh;
-}
-
 .container {
    @apply px-[35px] mx-auto;
 }
