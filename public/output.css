@@ -768,10 +768,6 @@ video {
   font-weight: 600;
 }
 
-.font-\[700\] {
-  font-weight: 700;
-}
-
 .uppercase {
   text-transform: uppercase;
 }
@@ -780,24 +776,12 @@ video {
   line-height: 1rem;
 }
 
-.tracking-tight {
-  letter-spacing: -0.025em;
+.tracking-\[-2px\] {
+  letter-spacing: -2px;
 }
 
 .tracking-tighter {
   letter-spacing: -0.05em;
-}
-
-.tracking-wide {
-  letter-spacing: 0.025em;
-}
-
-.tracking-\[\] {
-  letter-spacing: ;
-}
-
-.tracking-\[-2px\] {
-  letter-spacing: -2px;
 }
 
 .text-\[\#838282\] {
@@ -908,7 +892,39 @@ video {
   transform: translateY(-51%);
 }
 
+.hiking-section__image {
+  bottom: -60%;
+  right: 0;
+}
+
+.hiking-section__image img{
+  transform-origin: bottom;
+  transition: 1s;
+  width: 40%;
+}
+
+.active--scaleY {
+  opacity: 0;
+  transition: .3s !important;
+}
+
+.translate--one{
+  transform: translateY(0) !important;
+  transition: .8s !important;
+}
+
+.translate--two{
+  transform: translateY(50px) !important;
+  transition: .8s !important;
+}
+
+.translate--three{
+  transform: translateY(110px) !important;
+  transition: .8s !important;
+}
+
 .hover\:text-\[\#584c4c\]:hover {
   --tw-text-opacity: 1;
   color: rgb(88 76 76 / var(--tw-text-opacity));
 }
+

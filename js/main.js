@@ -137,5 +137,26 @@ categoryHikingElement.forEach((element) => {
             each: 0.05,
          },
       });
+      //Categories photos transition
+      let id_num = id[id.length - 1];
+      let category_photo = document.querySelectorAll('.hiking-section__image img');
+      let category_photo_scale = document.querySelector(`#photo-${id_num}`);
+      category_photo.forEach((c) => {
+            c.classList.add('active--scaleY');
+            c.classList.remove('translate--one');
+            if(id_num==1)c.classList.remove('translate--two');
+            c.classList.remove('translate--three');
+      });
+      
+      setTimeout(function(){category_photo_scale.classList.remove('active--scaleY')},50);
+      if(id_num==2) {
+         setTimeout(function(){
+            category_photo_scale.classList.add('translate--two')
+            category_photo_scale = document.querySelector(`#photo-${3}`);
+            category_photo_scale.classList.add('translate--two')
+         },50);
+      }
+      if(id_num==1) setTimeout(function(){category_photo_scale.classList.add('translate--one')},50);
+      if(id_num==3) setTimeout(function(){category_photo_scale.classList.add('translate--three')},50);
    });
 });

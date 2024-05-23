@@ -80,3 +80,30 @@
 .active--scaleX .hiking-section__second-wrapper {
    transform: translateY(-51%);
 }
+.hiking-section__image {
+   bottom: -60%;
+   right: 0;
+}
+.hiking-section__image img{
+   transform-origin: bottom;
+   transition: 1s;
+   width: 40%;
+
+}
+.active--scaleY {
+   opacity: 0;
+   transition: .3s !important;
+}
+.translate--one{
+   transform: translateY(0) !important;
+   transition: .8s !important;
+}
+.translate--two{
+   transform: translateY(50px) !important;
+   transition: .8s !important;
+}
+.translate--three{
+   transform: translateY(110px) !important;
+   transition: .8s !important;
+}
+
